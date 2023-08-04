@@ -483,7 +483,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 400;
     text-transform: uppercase;
     font-style: italic;
@@ -521,7 +521,7 @@ nav ul li a:hover::after {
     border: 1px solid var(--border-color);
     font-size: 1em;
     text-align: center;
-    margin-top: 50px;;
+    margin: 50px 0;
 }
 .home *{
     padding: 20px 0;
@@ -535,18 +535,38 @@ nav ul li a:hover::after {
 
 .menu{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 5%; 
-    margin: 20px;
+    gap: 20px;
 } 
 .menu .menu-item{
     width: 45%;
     padding: 30px;
     background-color: var(--overlay-color);
-    margin: 10px 5px;
     font-size: 0.7em;
 }
+.menu .menu-item h2{
+    font-size: 1.3em;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Playfair Display';
+    font-style: italic;
+    margin-top: 10px;
+}
 
+
+.contact{
+    padding: 20px; 
+    text-align: left;
+}
+.contact p{
+    margin-bottom: 20px;;
+}
+.contact img{
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+}
 .menu img{
     max-width: 150px;
     width: 100%;
@@ -554,4 +574,19 @@ nav ul li a:hover::after {
 
 footer p {
     display: inline;
+}
+
+
+
+/* media query for screen sizes 600px or smaller */
+@media screen and (max-width: 600px) {
+    .main{
+        padding: 1em;
+    }
+    .menu .menu-item{
+        width: 100%;
+    }
+    .menu .menu-item h2{
+        font-size: 1em;
+    }
 }
