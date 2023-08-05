@@ -120,13 +120,53 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/contact.js":
+/*!************************!*\
+  !*** ./src/contact.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Menu)\n/* harmony export */ });\nfunction Menu() {\n    var div = document.createElement('div');\n    div.className = 'contact';  \n    div.innerHTML = `\n    <p>📞 <a href=\"tel:+1555555555\">555 555 555</a></p>\n    <p>🏠 445 E 3rd St, Long Beach, CA 90802</p><img src=\"../src/assets/images/contact/location-image.jpg\"\n        alt=\"Savory Fusion Bistro restaurant location\">\n    `;\n\n\n    return div; // Return the div element\n  }\n\n//# sourceURL=webpack://restaurant/./src/contact.js?");
+
+/***/ }),
+
+/***/ "./src/createAppend.js":
+/*!*****************************!*\
+  !*** ./src/createAppend.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createAppend)\n/* harmony export */ });\nfunction createAppend(element,innerText) {\n    let newElement = document.createElement(element);  \n    if(element == 'img') {\n        newElement.src = innerText;\n    } else{\n    newElement.innerHTML = innerText; \n    }\n    return newElement;\n}\n\n//# sourceURL=webpack://restaurant/./src/createAppend.js?");
+
+/***/ }),
+
+/***/ "./src/home.js":
+/*!*********************!*\
+  !*** ./src/home.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var _createAppend__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createAppend */ \"./src/createAppend.js\");\n\nfunction Home() {\n    var div = document.createElement('div');\n    div.className = 'home'; \n    div.appendChild((0,_createAppend__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('p', 'Where Culinary Delights Await!')); \n    div.appendChild((0,_createAppend__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('p', 'Discover a dining experience like no other at Savory Fusion Bistro'));\n    div.appendChild((0,_createAppend__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('img', '../src/assets/images/chef.png'));\n    div.appendChild((0,_createAppend__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('p', '<a href=\"#\">Order online</a> or visit us!'));\n    return div; // Return the div element\n  } \n\n  \n\n\n//# sourceURL=webpack://restaurant/./src/home.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/style.css */ \"./src/css/style.css\");\n/* harmony import */ var _assets_images_panfried_steak_bg_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/images/panfried-steak-bg.jpg */ \"./src/assets/images/panfried-steak-bg.jpg\");\n\n\nlet body = document.querySelector('body');  \n\nconsole.log(\"haaalp meee\");\n\n\n//# sourceURL=webpack://restaurant/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/style.css */ \"./src/css/style.css\");\n/* harmony import */ var _home_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.js */ \"./src/home.js\");\n/* harmony import */ var _menu_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu.js */ \"./src/menu.js\");\n/* harmony import */ var _contact_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contact.js */ \"./src/contact.js\");\n\n \n \n\n\nconst main = document.getElementById(\"main\"); \n\nconst cacheDom  = () => {\n    const homeBtn = document.getElementById(\"home\");\n    const menuBtn = document.getElementById(\"menu\"); \n    const contactBtn = document.getElementById(\"contact\");   \n    const navButtons = [homeBtn,menuBtn,contactBtn]\n    return {navButtons}\n}\nconst switchPage = (e) => { \n    if(e.target.classList.contains(\"current\")){\n        return;\n    } else{\n        let clickedBtn = e.target;\n        if(clickedBtn.classList.contains(\"home-btn\")){\n            showPage('home'); \n            assignCurrentPage('home');\n        }else if(clickedBtn.classList.contains(\"menu-btn\")){\n            showPage('menu'); \n            assignCurrentPage('menu');\n        } else {\n            showPage('contact') \n            assignCurrentPage('contact');\n        }\n    }\n    \n}\n\nconst init = () =>{\n    //initialize the homescreen \n    showPage('home');\n    const {navButtons} = cacheDom();  \n    navButtons.forEach((button) =>{\n        button.addEventListener('click',switchPage);\n\n    })\n\n}\n\nconst bindEvents = () =>{\n}\n\nconst showPage = (page) =>{ \n    // If main has child nodes, remove them all\n    while(main.hasChildNodes()) {\n        main.removeChild(main.firstChild);\n    }\n\n    // Append the new page content based on the argument\n    if(page === 'home') main.appendChild((0,_home_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()); \n    if(page === 'contact') main.appendChild((0,_contact_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])());  // Note: You had a mistake here, it should be contact() instead of menu()\n    if(page === 'menu') main.appendChild((0,_menu_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])());\n}\n\n\n\n\nconst hidePage = () => {   \n\n    while (main.firstChild){\n        main.removeChild(main.firstChild);\n    }\n}\n\nconst assignCurrentPage = (page) => {\n    const {navButtons} = cacheDom(); \n    navButtons.forEach((button) => {\n       if(button.id == page){\n        button.classList.add(\"current\")\n       } else{\n        button.classList.remove('current');\n       }\n    })\n}\ninit()\n\n\n\n\n\n\n\n//# sourceURL=webpack://restaurant/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Menu)\n/* harmony export */ });\nfunction Menu() {\n    var div = document.createElement('div');\n    div.className = 'menu';  \n    div.innerHTML = `\n                    <div class=\"menu-item\"><img src=\"../src/assets/images/menu/mediterranean-sushi-rolls.png\" alt=\"Mediterranean Sushi Rolls\">\n                    <h2>Mediterranean Sushi Rolls</h2>\n                    <p>Feta cheese, kalamata olives, cucumbers, nori; served with tzatziki sauce.</p>\n                    </div>\n                    <div class=\"menu-item\"><img src=\"../src/assets/images/menu/tandoori-taco-twist.png\" alt=\"Tandoori Taco Twist\">\n                        <h2>Tandoori Taco Twist</h2>\n                        <p>Tandoori-spiced chicken, corn tortilla, mango salsa, cilantro-mint crema.</p>\n                    </div>\n                    <div class=\"menu-item\"><img src=\"../src/assets/images/menu/bavarian-bahn-mi.png\" alt=\"Pepe\">\n                        <h2>Bavarian Bahn Mi</h2>\n                        <p>Bratwurst, sauerkraut, pickled daikon & carrots, spicy mustard, baguette.</p>\n                    </div>\n                    <div class=\"menu-item\"><img src=\"../src/assets/images/menu/ramen-risotto-bowl.png\" alt=\"Ramen Risotto Bowl\">\n                        <h2>Ramen Risotto Bowl</h2>\n                        <p>Arborio rice, miso broth, seared scallops, pickled ginger, Parmesan.</p>\n                    </div>\n                    <div class=\"menu-item\"><img src=\"../src/assets/images/menu/cajun-sashimi-salad.png\" alt=\"Cajun Sashimi Salad\">\n                        <h2>Cajun Sashimi Salad</h2>\n                        <p>Cajun-seasoned tuna sashimi, crisp lettuce, Creole-spiced vinaigrette.</p>\n                    </div>\n                    <div class=\"menu-item\"><img src=\"../src/assets/images/menu/moroccan-bbq-sliders.png\" alt=\"Moroccan BBQ Sliders\">\n                        <h2>Moroccan BBQ Sliders</h2>\n                        <p>Pulled lamb, Moroccan spices, mini brioche buns, barbecue sauce, mint slaw.</p>\n                    </div>\n                    <div class=\"menu-item\"><img src=\"../src/assets/images/menu/thai-paella-symphony.png\" alt=\"Thai Paella Symphony\">\n                        <h2>Thai Paella Symphony</h2>\n                        <p>Saffron-infused jasmine rice, lemongrass, mussels, shrimp, chorizo, cilantro.</p>\n                    </div>\n                    <div class=\"menu-item\"><img src=\"../src/assets/images/menu/swiss-korean-fondue-pot.png\" alt=\"Swiss-Korean Fondue Pot\">\n                        <h2>Swiss-Korean Fondue Pot</h2>\n                        <p>Gruyère cheese, gochujang, bulgogi beef, kimchi, rye bread.</p>\n                    </div>\n                    `;\n\n\n    return div; // Return the div element\n  }\n\n//# sourceURL=webpack://restaurant/./src/menu.js?");
 
 /***/ }),
 
